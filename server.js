@@ -3,7 +3,7 @@ const cors = require('cors')
 require('dotenv').config()
 require('./config/database')
 
-const authRouter = require('./routes/authRouter')
+const userRouter = require('./routes/userRouter')
 
 const app = express()
 
@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cors())
 
 // - - - routers - - -
-app.use('/api/auth', authRouter)
+app.use('/api/users', userRouter)
 
 // - - - start the server - - -
 const port = process.env.PORT || 3001
