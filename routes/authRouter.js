@@ -2,12 +2,12 @@ const express = require('express')
 const router = express.Router()
 const auth = require('../middleware/auth')
 
-const routesCtrl = require('../controllers/routesController')
+const authCtrl = require('../controllers/authController')
 
 // - - - public routes - - -
-router.get('/', routesCtrl.index)
+router.post('/login', authCtrl.login)
 
 // - - - private routes - - -
-router.post('/', auth, routesCtrl.create)
+router.get('/user', auth, authCtrl.getUserData)
 
 module.exports = router
