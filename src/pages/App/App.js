@@ -7,18 +7,25 @@ import Landing from '../../pages/Landing/Landing'
 import RouteList from '../RouteList/RouteList'
 import AddRoute from '../AddRoute/AddRoute'
 import * as authService from '../../services/authService'
-
+import * as routesAPI from '../../services/routesAPI'
 
 function App() {
   const [user, setUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  const [routes, setRoutes] = useState([])
+
   const handleLogin = async (credentials) => {
     
   }
 
+  const handleAddRoute = async formData => {
+    const newRoute = await routesAPI.create(formData)
+    setRoutes([...routes, newRoute])
+  }
+
   useEffect(() => {
-    console.log(authService.signup({ email: 'hello@gmail.com', password: '123', username: 'ollie' }))
+    
   }, [])
 
   return (
@@ -34,11 +41,11 @@ function App() {
       />
       <Route
         exact path="/routes"
-        render={() => <RouteList />}
+        render={() => <RouteList routes={routes}/>}
       />
       <Route
         exact path="/routes/new"
-        render={() => <AddRoute />}
+        render={() => <AddRoute handleAddRoute={handleAddRoute}/>}
       />
     </div>
   );

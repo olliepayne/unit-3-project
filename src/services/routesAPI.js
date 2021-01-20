@@ -1,4 +1,4 @@
-const baseURL = '/api/routes/'
+const baseURL = 'http://localhost:3001/api/routes/'
 
 export function create(route) {
   return fetch(baseURL, {

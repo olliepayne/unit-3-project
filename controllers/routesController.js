@@ -8,6 +8,7 @@ module.exports = {
 
 function create(req, res) {
   Route.create(req.body)
+  .then(route => res.json(route))
 }
 
 function index(req, res) {
