@@ -14,7 +14,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const handleLogin = async (credentials) => {
-    setUser(authService.login(credentials))
+    
   }
 
   useEffect(() => {
