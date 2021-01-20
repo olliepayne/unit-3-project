@@ -10,10 +10,11 @@ import * as authService from '../../services/authService'
 
 
 function App() {
+  const [user, setUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-  const handleLogin = (loginData) => {
-    
+  const handleLogin = async (credentials) => {
+    setUser(authService.login(credentials))
   }
 
   useEffect(() => {
