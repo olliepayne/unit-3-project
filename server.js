@@ -3,7 +3,6 @@ const cors = require('cors')
 require('dotenv').config()
 require('./config/database')
 
-const usersRouter = require('./routes/usersRouter')
 const authRouter = require('./routes/authRouter')
 const routesRouter = require('./routes/routesRouter')
 
@@ -14,7 +13,6 @@ app.use(express.json())
 app.use(cors())
 
 // - - - routers - - -
-app.use('/api/users', usersRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/routes', routesRouter)
 
