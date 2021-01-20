@@ -12,16 +12,19 @@ module.exports = {
 function signup(req, res) {
   const { email, password, username } = req.body
 
-  if(!email || !password || !username) return res.status(400).json({ msg: 'Please enter all fields' })
+  if(!email || !password) return res.status(400).json({ msg: 'Please enter all fields' })
   
   User.findOne({ email })
   .then(user => {
     if(user) return res.status(400).json({ msg: 'User already exists' })
 
+    let newUsername
+    if(!username) newUsername = email
+
     const newUser = new User({
       email,
       password,
-      username
+      username: newUsername
     })
 
     bcrypt.genSalt(12, (err, salt) => {
