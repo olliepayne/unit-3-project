@@ -10,13 +10,15 @@ import * as authService from '../../services/authService'
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   useEffect(() => {
 
   }, [])
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar isLoggedIn={isLoggedIn}/>
       <Route
         exact path="/"
         render={() => <Landing />}
