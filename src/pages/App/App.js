@@ -12,6 +12,10 @@ import * as authService from '../../services/authService'
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  const handleLogin = () => {
+
+  }
+
   useEffect(() => {
 
   }, [])
@@ -25,7 +29,7 @@ function App() {
       />
       <Route
         exact path="/login"
-        render={() => <Login />}
+        render={() => <Login handleLogin={handleLogin}/>}
       />
       <Route
         exact path="/routes"
