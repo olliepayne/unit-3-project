@@ -2,9 +2,10 @@ const mongoose = require('mongoose')
 
 const routeSchema = mongoose.Schema({
   name: { type: String, required: true },
+  climbType: { type: String, required: true },
   grade: { type: String, required: true },
   consumerGrades: [String],
-  userRating: Number,
+  userRatings: [Number],
   location: { type: String, required: true },
   description: String,
   images: [String]

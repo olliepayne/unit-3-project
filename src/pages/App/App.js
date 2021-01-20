@@ -18,7 +18,7 @@ function App() {
   }
 
   useEffect(() => {
-
+    console.log(authService.signup({ email: 'hello@gmail.com', password: '123', username: 'ollie' }))
   }, [])
 
   return (

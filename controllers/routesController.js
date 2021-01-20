@@ -7,7 +7,7 @@ module.exports = {
 
 
 function create(req, res) {
-  
+  Route.create(req.body)
 }
 
 function index(req, res) {

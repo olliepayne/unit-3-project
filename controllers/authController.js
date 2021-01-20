@@ -6,7 +6,6 @@ const User = require('../models/User')
 module.exports = {
   signup,
   login,
-  getUserData
 }
 
 function signup(req, res) {
@@ -78,10 +77,4 @@ function login(req, res) {
       })
     })
   })
-}
-
-function getUserData(req, res) {
-  User.findById(req.user.id)
-  .select('-password')
-  .then(user => res.json(user))
 }

@@ -8,6 +8,6 @@ const routesCtrl = require('../controllers/routesController')
 router.get('/', routesCtrl.index)
 
 // - - - private routes - - -
-router.post('/', auth, routesCtrl.create)
+router.post('/', routesCtrl.create)
 
 module.exports = router

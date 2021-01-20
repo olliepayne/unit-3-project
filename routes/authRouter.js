@@ -9,6 +9,5 @@ router.post('/signup', authCtrl.signup)
 router.post('/login', authCtrl.login)
 
 // - - - private routes - - -
-router.get('/user', auth, authCtrl.getUserData)
 
 module.exports = router
