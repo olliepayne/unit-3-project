@@ -8,7 +8,7 @@ const RouteList = (props) => {
       <h1>All Routes</h1>
       <ul>
         {routes.map((route, index) => (
-          <li key="index">
+          <li key={index}>
             <p>{route.name}</p>
           </li>
         ))}

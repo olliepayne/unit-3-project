@@ -24,8 +24,14 @@ function App() {
     setRoutes([...routes, newRoute])
   }
 
+  const handleGetAllRoutes = async () => {
+    const allRoutes = await routesAPI.index()
+    console.log(allRoutes)
+    setRoutes(allRoutes)
+  }
+
   useEffect(() => {
-    
+    handleGetAllRoutes()
   }, [])
 
   return (
@@ -37,15 +43,15 @@ function App() {
       />
       <Route
         exact path="/login"
-        render={() => <Login handleLogin={handleLogin}/>}
+        render={() => <Login handleLogin={handleLogin} />}
       />
       <Route
         exact path="/routes"
-        render={() => <RouteList routes={routes}/>}
+        render={() => <RouteList routes={routes} />}
       />
       <Route
         exact path="/routes/new"
-        render={() => <AddRoute handleAddRoute={handleAddRoute}/>}
+        render={() => <AddRoute handleAddRoute={handleAddRoute} />}
       />
     </div>
   );

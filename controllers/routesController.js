@@ -12,5 +12,6 @@ function create(req, res) {
 }
 
 function index(req, res) {
-
+  Route.find({})
+  .then(routes => res.json(routes))
 }
