@@ -22,6 +22,10 @@ function App() {
         render={() => <Landing />}
       />
       <Route
+        exact path="/login"
+        render={() => <Login />}
+      />
+      <Route
         exact path="/routes"
         render={() => <RouteList />}
       />
