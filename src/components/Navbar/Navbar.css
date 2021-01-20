@@ -1,3 +1,29 @@
 nav {
+  height: 50px;
   background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  margin: 0 0 0 10px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin: 0 5px;
+  font-size: 1.1rem;
+}
+
+.link:hover {
+  opacity: 75%;
 }
