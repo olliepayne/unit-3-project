@@ -1,4 +1,4 @@
-const Route = require('../models/Route')
+const Climb = require('../models/Climb')
 
 module.exports = {
   create,
@@ -7,11 +7,11 @@ module.exports = {
 
 
 function create(req, res) {
-  Route.create(req.body)
-  .then(route => res.json(route))
+  Climb.create(req.body)
+  .then(climb => res.json(climb))
 }
 
 function index(req, res) {
-  Route.find({})
-  .then(routes => res.json(routes))
+  Climb.find({})
+  .then(climbs => res.json(climbs))
 }

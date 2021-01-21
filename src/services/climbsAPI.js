@@ -1,11 +1,11 @@
-const baseURL = 'http://localhost:3001/api/routes/'
+const baseURL = 'http://localhost:3001/api/climbs/'
 
-export function create(route) {
+export function create(climb) {
   return (
     fetch(baseURL, {
       method: "POST",
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(route)
+      body: JSON.stringify(climb)
     }, {mode: "cors"})
     .then(res => res.json())
   )
