@@ -10,13 +10,15 @@ import * as authService from '../../services/authService'
 import * as climbsAPI from '../../services/climbsAPI'
 
 function App() {
+  const [userID, setUserID] = useState()
   const [user, setUser] = useState({})
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   const [routes, setRoutes] = useState([])
 
-  const handleLogin = async (credentials) => {
-    
+  const handleLogin = async credentials => {
+    const tokenPayload = await authService.login(credentials)
+    setUserID(tokenPayload)
   }
 
   const handleAddClimb = async formData => {

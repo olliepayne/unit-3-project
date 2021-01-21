@@ -4,11 +4,13 @@ const Login = (props) => {
   const { handleLogin } = props
   const [formData, setFormData] = useState({})
 
-  const handleValue = (e) => {
-    setFormData({ [e.target.name]: e.target.value })
+  const handleChange = e => {
+    let newData = formData
+    newData[e.target.name] = e.target.value
+    setFormData(newData)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault()
     handleLogin(formData)
   }
@@ -17,9 +19,9 @@ const Login = (props) => {
     <div className="login-page">
       <form className="login-form" onSubmit={e => handleSubmit(e)}>
         <label>email</label>
-        <input name="email" type="text" onChange={e => handleValue(e)} />
+        <input name="email" type="text" onChange={e => handleChange(e)} />
         <label>password</label>
-        <input name="password" type="text" onChange={e => handleValue(e)} />
+        <input name="password" type="text" onChange={e => handleChange(e)} />
         <button>Submit</button>
       </form>
     </div>

@@ -5,3 +5,8 @@ export function setToken(token) {
 export function getToken() {
   return localStorage.getItem('token')
 }
+
+export function getUserIDFromToken() {
+  const token = getToken()
+  return token ? JSON.parse(atob(token.split(".")[1])).id : null;
+}

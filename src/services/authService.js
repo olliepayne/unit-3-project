@@ -22,3 +22,7 @@ export function login(credentials) {
   })
   .then(({ token }) => tokenService.setToken(token))
 }
+
+export function getUser() {
+  return tokenService.getUserIDFromToken()
+}
