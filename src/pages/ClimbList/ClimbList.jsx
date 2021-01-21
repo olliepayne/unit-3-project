@@ -1,16 +1,20 @@
-const ClimbList = (props) => {
-  const { routes } = props
+const ClimbList = props => {
+  const { climbs } = props
 
   return (
     <div>
       <h1>All Routes</h1>
-      <ul>
-        {routes.map((route, index) => (
+      {climbs.length > 0 ?
+        <ul>
+        {climbs.map((climb, index) => (
           <li key={index}>
-            <p>{route.name}</p>
+            <p>{climb.name}</p>
           </li>
         ))}
-      </ul>
+        </ul>
+        :
+        <p>Loading Routes...</p>
+      }
     </div>
   )
 }

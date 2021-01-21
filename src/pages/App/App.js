@@ -12,14 +12,14 @@ import * as climbsAPI from '../../services/climbsAPI'
 function App() {
   const [userID, setUserID] = useState('')
 
-  const [routes, setRoutes] = useState([])
+  const [climbs, setRoutes] = useState([])
 
   const handleLogin = async credentials => {
     await authService.login(credentials)
-    handleGetUser()
+    handleGetUserID()
   }
 
-  const handleGetUser = async () => {
+  const handleGetUserID = async () => {
     const token = await authService.getUser()
     setUserID(token.id)
   }
@@ -30,14 +30,14 @@ function App() {
   }
 
   const handleAddClimb = async formData => {
-    const newRoute = await climbsAPI.create(formData)
-    setRoutes([...routes, newRoute])
+    const newClimb = await climbsAPI.create(formData)
+    setRoutes([...climbs, newClimb])
   }
 
   const handleGetAllClimbs = async () => {
-    const allRoutes = await climbsAPI.index()
-    console.log(`Climbs: ${allRoutes}`)
-    setRoutes(allRoutes)
+    const allClimbs = await climbsAPI.index()
+    console.log(`Climbs: ${allClimbs}`)
+    setRoutes(allClimbs)
   }
 
   useEffect(() => {
@@ -57,7 +57,7 @@ function App() {
       />
       <Route
         exact path="/routes"
-        render={() => <ClimbList routes={routes} />}
+        render={() => <ClimbList climbs={climbs} />}
       />
       <Route
         exact path="/routes/new"
