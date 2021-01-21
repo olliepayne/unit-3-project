@@ -8,7 +8,5 @@ export function getToken() {
 
 export function getUserFromToken() {
   const token = getToken()
-  // console.log(token)
-  // console.log(atob(token.split(".")[1]))
   return token ? JSON.parse(atob(token.split(".")[1])) : null;
 }

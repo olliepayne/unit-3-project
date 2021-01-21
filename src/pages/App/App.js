@@ -17,10 +17,15 @@ function App() {
   const [routes, setRoutes] = useState([])
 
   const handleLogin = async credentials => {
-    
     const loginData = await authService.login(credentials)
     console.log(loginData)
+    handleGetUser()
     // setUserID(tokenPayload.id)
+  }
+
+  const handleGetUser = async () => {
+    const token = authService.getUser()
+    console.log(token)
   }
 
   const handleAddClimb = async formData => {

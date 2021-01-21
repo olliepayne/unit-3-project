@@ -1,4 +1,3 @@
-import e from "cors"
 import { useState } from "react"
 
 const AddClimb = (props) => {
