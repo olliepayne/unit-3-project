@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const routeSchema = mongoose.Schema({
+const climbSchema = mongoose.Schema({
   name: { type: String, required: true },
   type: { type: String, required: true },
   grade: { type: String, required: true },
@@ -11,4 +11,4 @@ const routeSchema = mongoose.Schema({
   images: [String]
 })
 
-module.exports = mongoose.model('Route', routeSchema)
+module.exports = mongoose.model('Climb', climbSchema)

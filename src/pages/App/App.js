@@ -4,10 +4,10 @@ import { Route } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Login from '../../pages/Login/Login'
 import Landing from '../../pages/Landing/Landing'
-import RouteList from '../RouteList/RouteList'
-import AddRoute from '../AddRoute/AddRoute'
+import ClimbList from '../ClimbList/ClimbList'
+import AddClimb from '../AddClimb/AddClimb'
 import * as authService from '../../services/authService'
-import * as routesAPI from '../../services/routesAPI'
+import * as climbsAPI from '../../services/climbsAPI'
 
 function App() {
   const [user, setUser] = useState({})
@@ -19,13 +19,13 @@ function App() {
     
   }
 
-  const handleAddRoute = async formData => {
-    const newRoute = await routesAPI.create(formData)
+  const handleAddClimb = async formData => {
+    const newRoute = await climbsAPI.create(formData)
     setRoutes([...routes, newRoute])
   }
 
   const handleGetAllRoutes = async () => {
-    const allRoutes = await routesAPI.index()
+    const allRoutes = await climbsAPI.index()
     console.log(allRoutes)
     setRoutes(allRoutes)
   }
@@ -47,11 +47,11 @@ function App() {
       />
       <Route
         exact path="/routes"
-        render={() => <RouteList routes={routes} />}
+        render={() => <ClimbList routes={routes} />}
       />
       <Route
         exact path="/routes/new"
-        render={() => <AddRoute handleAddRoute={handleAddRoute} />}
+        render={() => <AddClimb handleAddClimb={handleAddClimb} />}
       />
     </div>
   );

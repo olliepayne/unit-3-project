@@ -2,12 +2,12 @@ const express = require('express')
 const router = express.Router()
 const auth = require('../middleware/auth')
 
-const routesCtrl = require('../controllers/routesController')
+const climbsCtrl = require('../controllers/climbsController')
 
 // - - - public routes - - -
-router.get('/', routesCtrl.index)
+router.get('/', climbsCtrl.index)
 
 // - - - private routes - - -
-router.post('/', routesCtrl.create)
+router.post('/', climbsCtrl.create)
 
 module.exports = router

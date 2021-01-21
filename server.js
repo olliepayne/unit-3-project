@@ -4,7 +4,7 @@ require('dotenv').config()
 require('./config/database')
 
 const authRouter = require('./routes/authRouter')
-const routesRouter = require('./routes/routesRouter')
+const climbsRouter = require('./routes/climbsRouter')
 
 const app = express()
 
@@ -14,7 +14,7 @@ app.use(cors())
 
 // - - - routers - - -
 app.use('/api/auth', authRouter)
-app.use('/api/routes', routesRouter)
+app.use('/api/climbs', climbsRouter)
 
 // - - - start the server - - -
 const port = process.env.PORT || 3001

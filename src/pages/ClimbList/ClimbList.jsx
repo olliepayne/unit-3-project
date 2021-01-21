@@ -1,6 +1,4 @@
-// import RoutePage from '../../components/RoutePage/RoutePage'
-
-const RouteList = (props) => {
+const ClimbList = (props) => {
   const { routes } = props
 
   return (
@@ -17,4 +15,4 @@ const RouteList = (props) => {
   )
 }
 
-export default RouteList
+export default ClimbList

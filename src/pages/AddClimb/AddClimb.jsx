@@ -1,6 +1,7 @@
+import e from "cors"
 import { useState } from "react"
 
-const AddRoute = (props) => {
+const AddClimb = (props) => {
   const { handleAddRoute } = props
 
   const [formData, setFormData] = useState({})
@@ -11,17 +12,17 @@ const AddRoute = (props) => {
     setFormData(newData)
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    console.log(formData)
-    handleAddRoute(formData)
+    await handleAddRoute(formData)
+    setFormData({})
   }
 
   return (
     <div className="add-route-page">
       <form className="add-route-form" onSubmit={e => handleSubmit(e)}>
         <label>Name</label>
-        <input name="name" type="text" onChange={e => handleChange(e)} />
+        <input name="name" type="text" value={formData.name} onChange={e => handleChange(e)} />
         <label>Type</label>
         <input name="type" type="text" onChange={e => handleChange(e)} />
         <label>Grade</label>
@@ -34,4 +35,4 @@ const AddRoute = (props) => {
   )
 }
 
-export default AddRoute
+export default AddClimb
