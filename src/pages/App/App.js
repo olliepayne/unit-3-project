@@ -10,26 +10,23 @@ import * as authService from '../../services/authService'
 import * as climbsAPI from '../../services/climbsAPI'
 
 function App() {
-  const [userID, setUserID] = useState()
-  const [user, setUser] = useState({})
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userID, setUserID] = useState('')
 
   const [routes, setRoutes] = useState([])
 
   const handleLogin = async credentials => {
-    const loginData = await authService.login(credentials)
-    console.log(loginData)
+    await authService.login(credentials)
     handleGetUser()
-    // setUserID(tokenPayload.id)
   }
 
   const handleGetUser = async () => {
-    const token = authService.getUser()
-    console.log(token)
+    const token = await authService.getUser()
+    setUserID(token.id)
   }
 
-  const handleLogout = () => {
-    
+  const handleLogout = async () => {
+    await authService.logout()
+    setUserID(undefined)
   }
 
   const handleAddClimb = async formData => {
@@ -49,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar isLoggedIn={isLoggedIn}/>
+      <Navbar userID={userID}/>
       <Route
         exact path="/"
         render={() => <Landing />}
