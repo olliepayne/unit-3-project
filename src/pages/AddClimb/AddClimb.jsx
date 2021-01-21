@@ -2,7 +2,7 @@ import e from "cors"
 import { useState } from "react"
 
 const AddClimb = (props) => {
-  const { handleAddRoute } = props
+  const { handleAddClimb } = props
 
   const [formData, setFormData] = useState({})
 
@@ -14,7 +14,7 @@ const AddClimb = (props) => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    await handleAddRoute(formData)
+    await handleAddClimb(formData)
     setFormData({})
   }
 
@@ -22,7 +22,7 @@ const AddClimb = (props) => {
     <div className="add-route-page">
       <form className="add-route-form" onSubmit={e => handleSubmit(e)}>
         <label>Name</label>
-        <input name="name" type="text" value={formData.name} onChange={e => handleChange(e)} />
+        <input name="name" type="text" onChange={e => handleChange(e)} />
         <label>Type</label>
         <input name="type" type="text" onChange={e => handleChange(e)} />
         <label>Grade</label>

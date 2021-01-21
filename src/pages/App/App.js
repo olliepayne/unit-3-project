@@ -28,14 +28,14 @@ function App() {
     setRoutes([...routes, newRoute])
   }
 
-  const handleGetAllRoutes = async () => {
+  const handleGetAllClimbs = async () => {
     const allRoutes = await climbsAPI.index()
     console.log(`Climbs: ${allRoutes}`)
     setRoutes(allRoutes)
   }
 
   useEffect(() => {
-    handleGetAllRoutes()
+    handleGetAllClimbs()
   }, [])
 
   return (
