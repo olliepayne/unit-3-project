@@ -28,6 +28,10 @@ function App() {
     console.log(token)
   }
 
+  const handleLogout = () => {
+    
+  }
+
   const handleAddClimb = async formData => {
     const newRoute = await climbsAPI.create(formData)
     setRoutes([...routes, newRoute])

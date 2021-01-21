@@ -26,3 +26,7 @@ export function login(credentials) {
 export function getUser() {
   return tokenService.getUserFromToken()
 }
+
+export function logout() {
+  tokenService.removeToken()
+}
