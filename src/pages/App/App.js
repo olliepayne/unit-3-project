@@ -16,6 +16,7 @@ function App() {
 
   const handleLogin = async credentials => {
     await authService.login(credentials)
+    setUserID(authService.getUserID())
   }
 
   const handleLogout = async () => {

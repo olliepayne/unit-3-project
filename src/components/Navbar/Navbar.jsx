@@ -8,13 +8,13 @@ const Navbar = props => {
 
   useEffect(() => {
     setIsLoggedIn(userID ? true : false)
-  }, [userID])
+  }, [])
 
   return (
     <nav>
       <h2>Mountain</h2>
       <ul className="nav-links">
-        {isLoggedIn ?
+        {userID ?
           <>
             <li><a className="link" href="/">Home</a></li>
             <li><a className="link" href="/routes">Routes</a></li>
