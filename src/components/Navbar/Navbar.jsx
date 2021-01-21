@@ -4,12 +4,6 @@ import './Navbar.css'
 const Navbar = props => {
   const { userID } = props
 
-  const [isLoggedIn, setIsLoggedIn] = useState()
-
-  useEffect(() => {
-    setIsLoggedIn(userID ? true : false)
-  }, [])
-
   return (
     <nav>
       <h2>Mountain</h2>
