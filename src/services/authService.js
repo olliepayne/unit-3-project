@@ -24,5 +24,5 @@ export function login(credentials) {
 }
 
 export function getUser() {
-  return tokenService.getUserIDFromToken()
+  return tokenService.getUserFromToken()
 }

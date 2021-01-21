@@ -17,8 +17,10 @@ function App() {
   const [routes, setRoutes] = useState([])
 
   const handleLogin = async credentials => {
-    const tokenPayload = await authService.login(credentials)
-    setUserID(tokenPayload)
+    
+    const loginData = await authService.login(credentials)
+    console.log(loginData)
+    // setUserID(tokenPayload.id)
   }
 
   const handleAddClimb = async formData => {
@@ -28,7 +30,7 @@ function App() {
 
   const handleGetAllRoutes = async () => {
     const allRoutes = await climbsAPI.index()
-    console.log(allRoutes)
+    console.log(`Climbs: ${allRoutes}`)
     setRoutes(allRoutes)
   }
 
