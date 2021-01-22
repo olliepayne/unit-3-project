@@ -8,6 +8,6 @@ const climbsCtrl = require('../controllers/climbsController')
 router.get('/', climbsCtrl.index)
 
 // - - - private routes - - -
-router.post('/', climbsCtrl.create)
+router.post('/', auth, climbsCtrl.create)
 
 module.exports = router

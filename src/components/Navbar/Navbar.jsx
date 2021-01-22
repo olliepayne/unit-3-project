@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react'
 import './Navbar.css'
 
 const Navbar = props => {
-  const { userID } = props
+  const { user } = props
 
   return (
     <nav>
       <h2>Mountain</h2>
       <ul className="nav-links">
-        {userID ?
+        {user ?
           <>
             <li><a className="link" href="/">Home</a></li>
             <li><a className="link" href="/routes">Routes</a></li>

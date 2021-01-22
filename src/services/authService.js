@@ -23,8 +23,8 @@ export function login(credentials) {
   .then(({ token }) => tokenService.setToken(token))
 }
 
-export function getUserID() {
-  return tokenService.getUserIDFromToken()
+export function getUser() {
+  return tokenService.getUserFromToken()
 }
 
 export function logout() {

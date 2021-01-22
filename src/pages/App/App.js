@@ -10,13 +10,13 @@ import * as authService from '../../services/authService'
 import * as climbsAPI from '../../services/climbsAPI'
 
 function App() {
-  const [userID, setUserID] = useState(authService.getUserID())
+  const [user, setUser] = useState(authService.getUser())
 
   const [climbs, setRoutes] = useState([])
 
   const handleLogin = async credentials => {
     await authService.login(credentials)
-    setUserID(authService.getUserID())
+    setUser(authService.getUser())
   }
 
   const handleLogout = async () => {
@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar userID={userID} handleLogout={handleLogout} />
+      <Navbar user={user} handleLogout={handleLogout} />
       <Route
         exact path="/"
         render={() => <Landing />}
@@ -57,7 +57,7 @@ function App() {
         exact path="/routes/new"
         render={() => <AddClimb handleAddClimb={handleAddClimb} />}
       />
-      <p>{userID}</p>
+      <p>{user}</p>
     </div>
   );
 }
