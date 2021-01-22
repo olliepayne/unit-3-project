@@ -1,10 +1,10 @@
 const User = require('../models/User')
 
 module.exports = {
-  getOne
+  index
 }
 
-function getOne(req, res) {
-  User.findOne(req.id)
-  .then(user => res.json(user))
+function index(req, res) {
+  User.find({})
+  .then(users => res.json(users))
 }

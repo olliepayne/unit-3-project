@@ -1,13 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Route } from 'react-router-dom'
 import ClimbPage from '../../pages/ClimbPage/ClimbPage'
 import './ClimbCard.css'
-import * as usersAPI from '../../services/usersAPI'
 
 const ClimbCard = props => {
-  const { climb } = props
+  const { allUsers, climb } = props
 
-  const [owner, setOwner] = useState(usersAPI.getUserFromID(climb.ownerID))
+  const [owner, setOwner] = useState({})
+
+  const findClimbOwner = () => {
+    const result = allUsers.filter(user => user._id === climb.ownerID)
+    setOwner(result[0])
+  }
+
+  useEffect(() => {
+    findClimbOwner()
+  }, [])
 
   return (
     <div className="climb-card">

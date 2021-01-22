@@ -2,7 +2,7 @@ import './ClimbList.css'
 import ClimbCard from '../../components/ClimbCard/ClimbCard'
 
 const ClimbList = props => {
-  const { climbs } = props
+  const { allUsers, climbs } = props
 
   return (
     <div className="climb-list-page">
@@ -10,7 +10,7 @@ const ClimbList = props => {
       {climbs.length > 0 ?
         <ul className="climb-card-container">
         {climbs.map((climb, index) => (
-          <li key={index}><ClimbCard climb={climb} /></li>
+          <li key={index}><ClimbCard allUsers={allUsers} climb={climb} /></li>
         ))}
         </ul>
         :

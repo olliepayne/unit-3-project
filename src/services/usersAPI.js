@@ -1,11 +1,8 @@
-const baseURL = '/users/'
+const baseURL = '/api/users/'
 
-export function getUserFromID(id) {
+export function index() {
   return (
-    fetch(baseURL + id, {
-      method: 'GET',
-      id
-    }, { mode: 'cors' })
+    fetch(baseURL, { mode: 'cors' })
     .then(res => res.json())
   )
 }

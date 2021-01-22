@@ -5,6 +5,7 @@ require('./config/database')
 
 const authRouter = require('./routes/authRouter')
 const climbsRouter = require('./routes/climbsRouter')
+const usersRouter = require('./routes/usersRouter')
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(cors())
 
 // - - - routers - - -
 app.use('/api/auth', authRouter)
+app.use('/api/users', usersRouter)
 app.use('/api/climbs', climbsRouter)
 
 // - - - start the server - - -

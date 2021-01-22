@@ -7,6 +7,7 @@ import Landing from '../../pages/Landing/Landing'
 import ClimbList from '../ClimbList/ClimbList'
 import AddClimb from '../AddClimb/AddClimb'
 import * as authService from '../../services/authService'
+import * as usersAPI from '../../services/usersAPI'
 import * as climbsAPI from '../../services/climbsAPI'
 
 const boulderGrades = [
@@ -21,6 +22,7 @@ const sportGrades = [
 function App() {
   const [user, setUser] = useState(authService.getUser())
 
+  const [allUsers, setAllUsers] = useState([])
   const [climbs, setRoutes] = useState([])
 
   const handleLogin = async credentials => {
@@ -32,6 +34,11 @@ function App() {
     await authService.logout()
   }
 
+  const handleGetAllUsers = async () => {
+    const result = await usersAPI.index()
+    setAllUsers(result)
+  }
+
   const handleAddClimb = async formData => {
     const newClimb = await climbsAPI.create(formData)
     setRoutes([...climbs, newClimb])
@@ -39,11 +46,11 @@ function App() {
 
   const handleGetAllClimbs = async () => {
     const allClimbs = await climbsAPI.index()
-    console.log(`Climbs: ${allClimbs}`)
     setRoutes(allClimbs)
   }
 
   useEffect(() => {
+    handleGetAllUsers()
     handleGetAllClimbs()
   }, [])
 
@@ -60,7 +67,7 @@ function App() {
       />
       <Route
         exact path="/routes"
-        render={() => <ClimbList climbs={climbs} />}
+        render={() => <ClimbList allUsers={allUsers} climbs={climbs} />}
       />
       <Route
         exact path="/routes/new"
