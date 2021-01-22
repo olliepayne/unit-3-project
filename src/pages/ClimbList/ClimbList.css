@@ -1,3 +1,9 @@
+.climb-list-page {
+  margin: 0 0 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
 .climb-card-container {
   list-style-type: none;
   padding: 0;

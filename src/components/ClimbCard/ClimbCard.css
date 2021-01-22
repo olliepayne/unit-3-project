@@ -1,5 +1,8 @@
 .climb-card {
-  background-color: cadetblue;
-  display: flex;
-  flex-direction: column;
+  background-color: rgb(164, 201, 203);
+  width: 300px;
+}
+
+.contents {
+  margin: 10px 5px;
 }

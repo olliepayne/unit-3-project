@@ -1,5 +1,6 @@
 import { Route } from 'react-router-dom'
 import ClimbPage from '../../pages/ClimbPage/ClimbPage'
+import './ClimbCard.css'
 
 const ClimbCard = props => {
   const { climb } = props
@@ -10,9 +11,11 @@ const ClimbCard = props => {
         exact path={`/routes/${climb.name}-${climb._id}`}
         render={() => <ClimbPage climb={climb}/>}
       />
-      <h4>{climb.name}</h4>
-      <p>Type: {climb.type}, Grade: {climb.grade}, Location: {climb.location}</p>
-      <a href={`/routes/${climb.name}-${climb._id}`}>View</a>
+      <div className="contents">
+        <h4>{climb.name}</h4>
+        <p>Type: {climb.type}, Grade: {climb.grade}, Location: {climb.location}</p>
+        <a href={`/routes/${climb.name}-${climb._id}`}>View</a>
+      </div>
     </div>
   )
 }
