@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const AddClimb = (props) => {
   const { user, boulderGrades, sportGrades, handleAddClimb } = props
@@ -12,8 +12,9 @@ const AddClimb = (props) => {
     setFormData(newData)
   }
 
-  const changeGradeSelect = e => {
+  const handleTypeChange = e => {
     setClimbType(e.target.value)
+    handleChange(e)
   }
 
   const handleSubmit = async e => {
@@ -22,22 +23,28 @@ const AddClimb = (props) => {
     setFormData({})
   }
 
+  const updateForm = e => {
+    let newData = formData
+    newData[e.target.name] = e.target.value
+    setFormData(newData)
+  }
+
+  useEffect(() => {
+    
+  }, [])
+
   return (
     <div className="add-route-page">
       {user ?
         <form className="add-route-form" onSubmit={e => handleSubmit(e)}>
-          <label>Name</label>
+          <label>*Name</label>
           <input name="name" type="text" onChange={e => handleChange(e)} />
-          <label>Type</label>
-          <select name="type" onChange={e => {
-              changeGradeSelect(e)
-              handleChange(e)
-            }
-          }>
+          <label>*Type</label>
+          <select name="type" onChange={e => handleTypeChange(e)}>
             <option value="Boulder">Boulder</option>
             <option value="Sport">Sport</option>
           </select>
-          <label>Grade</label>
+          <label>*Grade</label>
           {climbType === 'Boulder' ?
             <select name="grade" onChange={e => handleChange(e)}>
               {boulderGrades.map((grade, index) => (
@@ -51,7 +58,7 @@ const AddClimb = (props) => {
               ))}
             </select>
           }
-          <label>Location</label>
+          <label>*Location</label>
           <input name="location" type="text" onChange={e => handleChange(e)} />
         <button>Submit</button>
       </form>

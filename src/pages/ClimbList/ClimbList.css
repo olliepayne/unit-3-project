@@ -1,0 +1,8 @@
+.climb-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.climb-details {
+  display: flex;
+}
