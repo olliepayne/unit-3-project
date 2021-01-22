@@ -55,7 +55,7 @@ function App() {
       />
       <Route
         exact path="/routes/new"
-        render={() => <AddClimb handleAddClimb={handleAddClimb} />}
+        render={() => <AddClimb user={user} handleAddClimb={handleAddClimb} />}
       />
       <p>{user}</p>
     </div>
