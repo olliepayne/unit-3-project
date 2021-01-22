@@ -8,11 +8,9 @@ const ClimbList = props => {
     <div className="climb-list-page">
       <h1>All Routes</h1>
       {climbs.length > 0 ?
-        <ul className="climb-list">
+        <ul className="climb-card-container">
         {climbs.map((climb, index) => (
-          <li key={index} className="climb-details">
-            <ClimbCard climb={climb} />
-          </li>
+          <li key={index}><ClimbCard climb={climb} /></li>
         ))}
         </ul>
         :

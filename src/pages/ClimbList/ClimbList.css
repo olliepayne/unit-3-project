@@ -1,8 +1,6 @@
-.climb-list {
+.climb-card-container {
   list-style-type: none;
   padding: 0;
-}
-
-.climb-details {
   display: flex;
+  flex-direction: column;
 }

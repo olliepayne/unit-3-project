@@ -1,0 +1,5 @@
+.climb-card {
+  background-color: cadetblue;
+  display: flex;
+  flex-direction: column;
+}
