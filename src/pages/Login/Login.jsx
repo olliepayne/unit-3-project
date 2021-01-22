@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './Login.css'
 
 const Login = (props) => {
   const { handleLogin } = props
@@ -18,10 +19,12 @@ const Login = (props) => {
   return (
     <div className="login-page">
       <form className="login-form" onSubmit={e => handleSubmit(e)}>
-        <label>email</label>
+        <label>Email Address</label>
         <input name="email" type="text" onChange={e => handleChange(e)} />
-        <label>password</label>
+        <br />
+        <label>Password</label>
         <input name="password" type="text" onChange={e => handleChange(e)} />
+        <br />
         <button>Submit</button>
       </form>
     </div>
