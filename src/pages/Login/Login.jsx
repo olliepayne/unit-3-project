@@ -23,7 +23,7 @@ const Login = (props) => {
         <input name="email" type="text" onChange={e => handleChange(e)} />
         <br />
         <label>Password</label>
-        <input name="password" type="text" onChange={e => handleChange(e)} />
+        <input name="password" type="password" onChange={e => handleChange(e)} />
         <br />
         <button>Submit</button>
       </form>

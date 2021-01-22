@@ -8,6 +8,7 @@
   align-items: center;
 }
 
-.login-form label {
-  align-items: flex-start;
+.login-form input {
+  border: solid;
+  border-width: 1px;
 }
