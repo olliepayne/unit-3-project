@@ -8,7 +8,8 @@ const climbSchema = mongoose.Schema({
   userRatings: [Number],
   location: { type: String, required: true },
   description: String,
-  images: [String]
+  images: [String],
+  ownerID: { type: String, required: true }
 })
 
 module.exports = mongoose.model('Climb', climbSchema)

@@ -2,6 +2,7 @@
   margin: 0 0 0 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .climb-card-container {

@@ -17,9 +17,13 @@ const AddClimb = (props) => {
     handleChange(e)
   }
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault()
-    await handleAddClimb(formData)
+
+    let newData = formData
+    newData['ownerID'] = user
+
+    handleAddClimb(formData)
     setFormData({})
   }
 
