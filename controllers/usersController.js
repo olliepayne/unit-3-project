@@ -5,6 +5,6 @@ module.exports = {
 }
 
 function getOne(req, res) {
-  User.findOne(req.filters)
+  User.findOne(req.id)
   .then(user => res.json(user))
 }

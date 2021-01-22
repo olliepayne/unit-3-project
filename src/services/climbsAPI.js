@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3001/api/climbs/'
+const baseURL = '/api/climbs/'
 
 export function create(climb) {
   return (
@@ -12,6 +12,8 @@ export function create(climb) {
 }
 
 export function index() {
-  return fetch(baseURL, { mode: 'cors' })
+  return (
+    fetch(baseURL, { mode: 'cors' })
     .then(res => res.json())
+  )
 }
