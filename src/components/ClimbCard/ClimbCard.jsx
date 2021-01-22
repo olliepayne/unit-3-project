@@ -25,8 +25,12 @@ const ClimbCard = props => {
       />
       <div className="contents">
         <h4>{climb.name}</h4>
-        <p>Type: {climb.type}, Grade: {climb.grade}, Location: {climb.location}</p>
-        <br />
+        <p>Type: {climb.type}
+          <br />
+          Grade: {climb.grade}
+          <br />
+          Location: {climb.location}
+        </p>
         <p>Submitted by: {owner.email}</p>
         <a href={`/routes/${climb.name}-${climb._id}`}>View</a>
       </div>
