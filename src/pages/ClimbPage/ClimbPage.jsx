@@ -1,9 +1,9 @@
-const RoutePage = () => {
+const ClimbPage = () => {
   return ( 
-    <div className="route-page">
+    <div className="climb-page">
       
     </div>
   )
 }
 
-export default RoutePage
+export default ClimbPage
