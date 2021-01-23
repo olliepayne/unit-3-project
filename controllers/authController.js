@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function signup(req, res) {
-  const { email, password, passwordCheck, username } = req.body
+  const { username, email, password, passwordCheck } = req.body
 
   if(!email || !password) return res.status(400).json({ msg: 'Please enter all fields' })
 

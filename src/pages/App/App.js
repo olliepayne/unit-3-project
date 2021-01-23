@@ -28,6 +28,7 @@ function App() {
 
   const handleSignup = async credentials => {
     await authService.signup(credentials)
+    await authService.login(credentials)
     setUser(authService.getUser())
   }
 

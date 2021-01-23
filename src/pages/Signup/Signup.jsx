@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './Signup.css'
 
 const Signup = props => {
   const { handleSignup } = props
@@ -8,6 +9,7 @@ const Signup = props => {
   const [passwordMatch, setPasswordMatch] = useState(false)
 
   const handleChange = e => {
+    // Make sure passwords match
     if(e.target.name === 'passwordCheck') {
       const passwordCheckVal = e.target.value
       if(formData['password'] !== null) {
@@ -25,25 +27,32 @@ const Signup = props => {
   }
 
   const handleSubmit = e => {
+    e.preventDefault()
+
     if(passwordMatch) {
-      e.preventDefault()
       handleSignup(formData)
     }
   }
 
   return (
     <div className="signup-page">
-      <form className="login-form" onSubmit={e => handleSubmit(e)}>
+      <form className="signup-form" onSubmit={e => handleSubmit(e)}>
         <label>Username</label>
         <input name="username" type="text" onChange={e => handleChange(e)} />
         <br />
-        <label>Email Address</label>
+        <label>*Email Address</label>
         <input name="email" type="text" onChange={e => handleChange(e)} />
         <br />
-        <label>Password</label>
+        <label>*Password</label>
         <input name="password" type="password" onChange={e => handleChange(e)} />
         <br />
-        <label>Confirm Password</label>
+        <label>*Confirm Password</label>
+        {!passwordMatch ?
+          <p className="password-error">Passwords do not match</p>
+          :
+          <>
+          </>
+        }
         <input name="passwordCheck" type="password" onChange={e => handleChange(e)} />
         <br />
         <button>Submit</button>
