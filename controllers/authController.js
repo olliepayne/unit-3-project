@@ -20,7 +20,11 @@ function signup(req, res) {
     if(user) return res.status(400).json({ msg: 'User already exists' })
 
     let newUsername
-    if(!username) newUsername = email
+    if(!username) {
+      newUsername = email
+    } else {
+      newUsername = username
+    }
 
     const newUser = new User({
       email,
