@@ -27,3 +27,27 @@ h2 {
 .link:hover {
   opacity: 75%;
 }
+
+.you-nav {
+  color: white;
+  margin: 0 5px;
+  font-size: 1.1rem;
+}
+
+.you-nav:hover {
+  cursor: pointer;
+}
+
+.you-container {
+
+}
+
+.you-container > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.you-container > ul li a {
+  text-decoration: none;
+  color: white;
+}
