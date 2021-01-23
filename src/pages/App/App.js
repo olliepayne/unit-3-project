@@ -28,8 +28,11 @@ function App() {
 
   const handleSignup = async credentials => {
     await authService.signup(credentials)
+    await handleLogout()
     await authService.login(credentials)
     setUser(authService.getUser())
+
+    await handleGetAllUsers()
   }
 
   const handleLogin = async credentials => {
