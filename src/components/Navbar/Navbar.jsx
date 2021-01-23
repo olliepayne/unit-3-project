@@ -15,11 +15,14 @@ const Navbar = props => {
             <li><a className="link" href="/">Home</a></li>
             <li><a className="link" href="/routes">Routes</a></li>
             <li><a className="link" href="/routes/new">Add Route</a></li>
-            <li>
+            <li className="you-link">
               You
+              <img src="" />
               {showUserLinks ?
                 <div>
-                  
+                  <ul>
+                    <li><a href="/" onClick={props.handleLogout}>Logout</a></li>
+                  </ul>
                 </div>
                 :
                 <>
