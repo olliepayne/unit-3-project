@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Route } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
+import Signup from '../../pages/Signup/Signup'
 import Login from '../../pages/Login/Login'
 import Landing from '../../pages/Landing/Landing'
 import ClimbList from '../ClimbList/ClimbList'
@@ -24,6 +25,11 @@ function App() {
 
   const [allUsers, setAllUsers] = useState([])
   const [climbs, setRoutes] = useState([])
+
+  const handleSignup = async credentials => {
+    await authService.signup(credentials)
+    setUser(authService.getUser())
+  }
 
   const handleLogin = async credentials => {
     await authService.login(credentials)
@@ -60,6 +66,10 @@ function App() {
       <Route
         exact path="/"
         render={() => <Landing />}
+      />
+      <Route
+        exact path="/signup"
+        render={() => <Signup handleSignup={handleSignup}/>}
       />
       <Route
         exact path="/login"

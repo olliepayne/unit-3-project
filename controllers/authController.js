@@ -9,9 +9,11 @@ module.exports = {
 }
 
 function signup(req, res) {
-  const { email, password, username } = req.body
+  const { email, password, passwordCheck, username } = req.body
 
   if(!email || !password) return res.status(400).json({ msg: 'Please enter all fields' })
+
+  if(password !== passwordCheck) return res.status(400).json({ msg: 'Passwords do not match' })
   
   User.findOne({ email })
   .then(user => {

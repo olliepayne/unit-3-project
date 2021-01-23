@@ -6,7 +6,7 @@ const Navbar = props => {
 
   return (
     <nav>
-      <h2>Mountain</h2>
+      <h2>Rosetta Send</h2>
       <ul className="nav-links">
         {user ?
           <>

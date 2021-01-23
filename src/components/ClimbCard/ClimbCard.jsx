@@ -31,7 +31,7 @@ const ClimbCard = props => {
           <br />
           Location: {climb.location}
         </p>
-        <p>Submitted by: {owner.email}</p>
+        <p>Submitted by: {owner.username}</p>
         <a href={`/routes/${climb.name}-${climb._id}`}>View</a>
       </div>
     </div>

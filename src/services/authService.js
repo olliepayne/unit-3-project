@@ -1,11 +1,11 @@
 import * as tokenService from './tokenService'
 const baseURL = 'http://localhost:3001/api/auth/'
 
-export function signup(user) {
+export function signup(credentials) {
   return fetch(baseURL + 'signup', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(user)
+    body: JSON.stringify(credentials)
   }, { mode: 'cors' })
   .then(res => res.json())
 }
