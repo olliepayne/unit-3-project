@@ -9,7 +9,6 @@ const Signup = props => {
   const [passwordMatch, setPasswordMatch] = useState(false)
 
   const handleChange = e => {
-    // Make sure passwords match
     if(e.target.name === 'passwordCheck') {
       const passwordCheckVal = e.target.value
       if(formData['password'] !== null) {
@@ -38,7 +37,7 @@ const Signup = props => {
     <div className="signup-page">
       <form className="signup-form" onSubmit={e => handleSubmit(e)}>
         <label>Username</label>
-        <input name="username" type="text" onChange={e => handleChange(e)} />
+        <input name="username" type="text" max="16" onChange={e => handleChange(e)} />
         <br />
         <label>*Email Address</label>
         <input name="email" type="text" onChange={e => handleChange(e)} />
