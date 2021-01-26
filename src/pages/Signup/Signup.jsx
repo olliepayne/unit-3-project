@@ -9,20 +9,15 @@ const Signup = props => {
   const [passwordMatch, setPasswordMatch] = useState(false)
 
   const handleChange = e => {
-    if(e.target.name === 'passwordCheck') {
-      const passwordCheckVal = e.target.value
-      if(formData['password'] !== null) {
-        if(passwordCheckVal === formData.password) {
-          setPasswordMatch(true)
-        } else {
-          setPasswordMatch(false)
-        }
-      }
-    }
-
     let newData = formData
     newData[e.target.name] = e.target.value
     setFormData(newData)
+
+    if(formData['password'] === formData['passwordCheck']) {
+      setPasswordMatch(true)
+    } else {
+      setPasswordMatch(false)
+    }
   }
 
   const handleSubmit = e => {

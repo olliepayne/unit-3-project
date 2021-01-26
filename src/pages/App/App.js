@@ -21,32 +21,44 @@ const sportGrades = [
 ]
 
 function App() {
-  const [user, setUser] = useState(authService.getUser())
+  const [user, setUser] = useState()
   const [allUsers, setAllUsers] = useState([])
-  
+
   const [climbs, setRoutes] = useState([])
 
   const handleSignup = async credentials => {
-    await authService.signup(credentials)
+    // logout any current credentials
     await handleLogout()
+
+    // signup and login the new user
+    await authService.signup(credentials)
     await authService.login(credentials)
-    setUser(authService.getUser())
+    
+    // set a reference to the user object
+    await handleGetUser()
 
     await handleGetAllUsers()
   }
 
   const handleLogin = async credentials => {
     await authService.login(credentials)
-    setUser(authService.getUser())
+    await handleGetUser()
   }
 
   const handleLogout = async () => {
     await authService.logout()
   }
 
+  async function handleGetUser() {
+    const uid = await authService.getUserID()
+    const resultUser = await usersAPI.getOne(uid)
+    // console.log(resultUser)
+    setUser(resultUser)
+  }
+
   const handleGetAllUsers = async () => {
-    const result = await usersAPI.index()
-    setAllUsers(result)
+    const resultUsers = await usersAPI.index()
+    setAllUsers(resultUsers)
   }
 
   const handleAddClimb = async formData => {
@@ -60,7 +72,9 @@ function App() {
   }
 
   useEffect(() => {
+    handleGetUser()
     handleGetAllUsers()
+    
     handleGetAllClimbs()
   }, [])
 

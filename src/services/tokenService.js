@@ -10,7 +10,7 @@ export function removeToken() {
   localStorage.removeItem('token')
 }
 
-export function getUserFromToken() {
+export function getUserIDFromToken() {
   const token = getToken()
   return token ? JSON.parse(atob(token.split(".")[1])).id : null;
 }
