@@ -6,3 +6,10 @@ export function index() {
     .then(res => res.json())
   )
 }
+
+export function getOne(id) {
+  return (
+    fetch(baseURL + id, { mode: 'cors' })
+    .then(res => res.json())
+  )
+}

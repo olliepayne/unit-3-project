@@ -38,16 +38,16 @@ h2 {
   cursor: pointer;
 }
 
-.you-container {
-
-}
-
-.you-container > ul {
+.you-links {
   list-style-type: none;
   padding: 0;
 }
 
-.you-container > ul li a {
+.you-links li a {
   text-decoration: none;
   color: white;
+}
+
+.you-links li a:hover {
+  opacity: 75%;
 }
