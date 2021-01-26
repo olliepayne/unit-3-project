@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const path = require('path');
 require('dotenv').config()
 require('./config/database')
 
@@ -17,6 +18,10 @@ app.use(cors())
 app.use('/api/auth', authRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/climbs', climbsRouter)
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // - - - start the server - - -
 const port = process.env.PORT || 3001

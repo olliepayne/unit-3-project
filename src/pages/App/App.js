@@ -52,7 +52,7 @@ function App() {
   async function handleGetUser() {
     const uid = await authService.getUserID()
     const resultUser = await usersAPI.getOne(uid)
-    // console.log(resultUser)
+    console.log(resultUser)
     setUser(resultUser)
   }
 
