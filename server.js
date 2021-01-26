@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const path = require('path');
+const favicon = require('serve-favicon');
 require('dotenv').config()
 require('./config/database')
 
@@ -13,6 +14,9 @@ const app = express()
 // - - - middleware - - -
 app.use(express.json())
 app.use(cors())
+
+app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 // - - - routers - - -
 app.use('/api/auth', authRouter)
