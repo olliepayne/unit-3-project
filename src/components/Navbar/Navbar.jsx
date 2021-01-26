@@ -13,7 +13,7 @@ const Navbar = props => {
             <li><a className="link" href="/">Home</a></li>
             <li><a className="link" href="/routes">Routes</a></li>
             <li><a className="link" href="/routes/new">Add Route</a></li>
-            <li><a className="link" href="/users/">You</a></li>
+            <li><a className="link" href={`/users/${user}`}>You</a></li>
           </>
           :
           <>

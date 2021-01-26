@@ -4,7 +4,8 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   username: { type: String, max: 16 },
-  avatarURL: String
+  avatarURL: String,
+  submittedClimbs: { type: mongoose.Schema.Types.ObjectId, ref: 'Climb' }
 })
 
 module.exports = mongoose.model('User', userSchema)

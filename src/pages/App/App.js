@@ -22,8 +22,8 @@ const sportGrades = [
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
-
   const [allUsers, setAllUsers] = useState([])
+  
   const [climbs, setRoutes] = useState([])
 
   const handleSignup = async credentials => {
